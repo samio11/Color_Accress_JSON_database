@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice-02</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script> -->
+    <style>
+        .s1 {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="">
+        <button onclick="callMe()" id="btn">Click for fun!</button>
+        <div id="container">
+        </div>
+    </section>
+    <script>
+        function callMe() {
+            fetch('https://jsonplaceholder.typicode.com/photos')
+                .then(req => req.json())
+                .then(x => hello(x))
+            alert("FUCK YOU!!");
+            document.getElementById('btn').style.display = 'none';
+        }
+        function hello(data) {
+            const con = document.getElementById('container');
+            for (let k of data) {
+                let div = document.createElement('div');
+                div.classList.add('s1')
+                div.innerHTML = `<img src="${k.url}"  style="width: 100px; height: 100px;" alt="">
+               `;
+                con.appendChild(div);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
